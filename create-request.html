@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Create Request</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="create-request.html" class="nav-link active">Create Request</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow-light">CREATE REQUEST</p>
+    <h1>Turn a rough problem into a clear help request.</h1>
+    <p>Use built-in AI suggestions for category, urgency, tags, and a stronger description rewrite.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="page-inner">
+    <div class="create-layout">
+
+      <!-- FORM -->
+      <div class="card">
+        <div class="form-group">
+          <label class="form-label" for="reqTitleInput">Title</label>
+          <input class="form-input" id="reqTitleInput" type="text"
+            placeholder="Need review on my JavaScript quiz app before submission"
+            oninput="updateAIGuidance()">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reqDescInput">Description</label>
+          <textarea class="form-textarea" id="reqDescInput" style="min-height:140px;"
+            placeholder="Explain the challenge, your current progress, deadline, and what kind of help would be useful."></textarea>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label class="form-label" for="reqTags">Tags</label>
+            <input class="form-input" id="reqTags" type="text" placeholder="JavaScript, Debugging, Review">
+          </div>
+          <div>
+            <label class="form-label" for="reqCategory">Category</label>
+            <select class="form-select" id="reqCategory">
+              <option>Web Development</option>
+              <option>Design</option>
+              <option>Career</option>
+              <option>Community</option>
+              <option>Data</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reqUrgency">Urgency</label>
+          <select class="form-select" id="reqUrgency">
+            <option>High</option>
+            <option>Medium</option>
+            <option selected>Low</option>
+          </select>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+          <button class="apply-btn" onclick="applyAISuggestions()">Apply AI suggestions</button>
+          <button class="publish-btn" onclick="handleCreateRequest()">Publish request</button>
+        </div>
+      </div>
+
+      <!-- AI ASSISTANT -->
+      <div class="card">
+        <div class="card-eyebrow">AI ASSISTANT</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:24px;">Smart request guidance</h3>
+
+        <div class="ai-guidance-row">
+          <span class="ai-guidance-label">Suggested category</span>
+          <span class="ai-guidance-value" id="aiCategory">Community</span>
+        </div>
+        <div class="ai-guidance-row">
+          <span class="ai-guidance-label">Detected urgency</span>
+          <span class="ai-guidance-value" id="aiUrgency">Low</span>
+        </div>
+        <div class="ai-guidance-row">
+          <span class="ai-guidance-label">Suggested tags</span>
+          <span class="ai-guidance-value hint" id="aiTagsSugg">Add more detail for smarter tags</span>
+        </div>
+        <div class="ai-guidance-row" style="align-items:flex-start;padding-top:14px;">
+          <span class="ai-guidance-label">Rewrite suggestion</span>
+          <span class="ai-guidance-value hint" id="aiRewrite" style="max-width:200px;">Start describing the challenge to generate a stronger version.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Notifications</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="notifications.html" class="nav-link active">Notifications</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow-light">NOTIFICATIONS</p>
+    <h1>Stay updated on requests, helpers, and trust signals.</h1>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="page-inner">
+    <div class="card" style="padding:0;overflow:hidden;">
+      <div style="padding:28px 28px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div class="card-eyebrow" style="margin-bottom:4px;">LIVE UPDATES</div>
+          <h3 style="font-size:22px;font-weight:800;">Notification feed</h3>
+        </div>
+        <button class="btn-pill" onclick="markAllRead()">Mark all read</button>
+      </div>
+      <div class="notif-list" id="notifList"></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderNotifications();
+
+  function markAllRead() {
+    NOTIFICATIONS.forEach(n => n.read = true);
+    renderNotifications();
+    showToast('All notifications marked as read.');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Leaderboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="leaderboard.html" class="nav-link active">Leaderboard</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow-light">LEADERBOARD</p>
+    <h1>Recognize the people who keep the community moving.</h1>
+    <p>Trust score, contribution count, and badges create visible momentum for reliable helpers.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="page-inner">
+    <div class="leaderboard-layout">
+
+      <div class="card">
+        <div class="card-eyebrow">TOP HELPERS</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:20px;">Rankings</h3>
+        <div id="helperRankings"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-eyebrow">BADGE SYSTEM</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:20px;">Trust and achievement</h3>
+        <div id="badgeRankings"></div>
+      </div>
+
+    </div>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <div class="card" style="margin-top:24px;">
+      <div class="card-eyebrow">BADGE GLOSSARY</div>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:20px;">What the badges mean</h3>
+      <div class="three-col">
+        <div style="padding:18px;border-radius:var(--radius-sm);background:#f9fafa;border:1px solid var(--border);">
+          <div style="font-weight:800;font-size:15px;margin-bottom:6px;">🎨 Design Ally</div>
+          <div style="font-size:13px;color:var(--muted);">Helped 5+ design-related requests with quality feedback.</div>
+        </div>
+        <div style="padding:18px;border-radius:var(--radius-sm);background:#f9fafa;border:1px solid var(--border);">
+          <div style="font-weight:800;font-size:15px;margin-bottom:6px;">⚡ Fast Responder</div>
+          <div style="font-size:13px;color:var(--muted);">Responded within 15 minutes on 3 or more occasions.</div>
+        </div>
+        <div style="padding:18px;border-radius:var(--radius-sm);background:#f9fafa;border:1px solid var(--border);">
+          <div style="font-weight:800;font-size:15px;margin-bottom:6px;">🏆 Top Mentor</div>
+          <div style="font-size:13px;color:var(--muted);">Ranked #1 on the leaderboard for a full week.</div>
+        </div>
+        <div style="padding:18px;border-radius:var(--radius-sm);background:#f9fafa;border:1px solid var(--border);">
+          <div style="font-weight:800;font-size:15px;margin-bottom:6px;">🛠 Code Rescuer</div>
+          <div style="font-size:13px;color:var(--muted);">Solved 5+ web development requests successfully.</div>
+        </div>
+        <div style="padding:18px;border-radius:var(--radius-sm);background:#f9fafa;border:1px solid var(--border);">
+          <div style="font-weight:800;font-size:15px;margin-bottom:6px;">🐛 Bug Hunter</div>
+          <div style="font-size:13px;color:var(--muted);">Identified root cause bugs in 3+ reported issues.</div>
+        </div>
+        <div style="padding:18px;border-radius:var(--radius-sm);background:#f9fafa;border:1px solid var(--border);">
+          <div style="font-weight:800;font-size:15px;margin-bottom:6px;">🗣 Community Voice</div>
+          <div style="font-size:13px;color:var(--muted);">Left meaningful comments on 10+ community threads.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderLeaderboard();
+</script>
+</body>
+</html>

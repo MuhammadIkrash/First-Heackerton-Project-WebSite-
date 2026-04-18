@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Login / Signup</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    </div>
+  </div>
+</nav>
+
+<section class="auth-section">
+  <div class="auth-inner">
+    <div class="auth-left">
+      <p class="eyebrow-light">COMMUNITY ACCESS</p>
+      <h1>Enter the support network.</h1>
+      <p>Choose a demo identity, set your role, and jump into a multi-page product flow designed for asking, offering, and tracking help with a premium interface.</p>
+      <ul>
+        <li>Role-based entry for Need Help, Can Help, or Both</li>
+        <li>Direct path into dashboard, requests, AI Center, and community feed</li>
+        <li>Persistent demo session powered by LocalStorage</li>
+      </ul>
+    </div>
+    <div class="auth-right">
+      <p class="eyebrow-teal">LOGIN / SIGNUP</p>
+      <h2>Authenticate your community profile</h2>
+      <div class="form-group">
+        <label class="form-label" for="demoUser">Select demo user</label>
+        <select class="form-select" id="demoUser">
+          <option>Ayesha Khan</option>
+          <option>Hassan Ali</option>
+          <option>Sara Noor</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="roleSelect">Role selection</label>
+        <select class="form-select" id="roleSelect">
+          <option>Both</option>
+          <option>Need Help</option>
+          <option>Can Help</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div>
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" value="community@helphub.ai" readonly>
+        </div>
+        <div>
+          <label class="form-label">Password</label>
+          <input class="form-input" type="password" value="demo1234" readonly>
+        </div>
+      </div>
+      <button class="btn-full teal" onclick="handleAuth()">Continue to dashboard</button>
+    </div>
+  </div>
+</section>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

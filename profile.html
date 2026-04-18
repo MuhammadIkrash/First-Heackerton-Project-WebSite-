@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="onboarding.html" class="nav-link">Onboarding</a>
+      <a href="profile.html" class="nav-link active">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow-light">PROFILE</p>
+    <h1 id="profileName">Ayesha Khan</h1>
+    <p id="profileRoleLoc" style="margin-top:8px;font-size:15px;color:rgba(255,255,255,0.6);">Both • Karachi</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="page-inner">
+    <div class="two-col">
+
+      <!-- PUBLIC PROFILE -->
+      <div class="card">
+        <div class="card-eyebrow">PUBLIC PROFILE</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:24px;">Skills and reputation</h3>
+
+        <div class="profile-stats-row">
+          <div class="profile-stat-row">
+            <span class="profile-stat-label">Trust score</span>
+            <span class="profile-stat-value" id="profileTrust">100%</span>
+          </div>
+          <div class="profile-stat-row">
+            <span class="profile-stat-label">Contributions</span>
+            <span class="profile-stat-value" id="profileContrib">35</span>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <p style="font-size:13px;font-weight:700;margin-bottom:8px;">Skills</p>
+          <div class="skills-chips" id="profileSkills"></div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <p style="font-size:13px;font-weight:700;margin-bottom:8px;">Badges</p>
+          <div class="badges-chips" id="profileBadges"></div>
+        </div>
+      </div>
+
+      <!-- EDIT PROFILE -->
+      <div class="card">
+        <div class="card-eyebrow">EDIT PROFILE</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:24px;">Update your identity</h3>
+
+        <div class="form-row">
+          <div>
+            <label class="form-label">Name</label>
+            <input class="form-input" id="editName" type="text">
+          </div>
+          <div>
+            <label class="form-label">Location</label>
+            <input class="form-input" id="editLoc" type="text">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Skills</label>
+          <input class="form-input" id="editSkills" type="text">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Interests</label>
+          <input class="form-input" id="editInterests" type="text">
+        </div>
+
+        <button class="btn-full teal" onclick="saveProfile()">Save profile</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderProfile();
+</script>
+</body>
+</html>

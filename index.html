@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Community Support Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+      <a href="ai-center.html" class="nav-link">AI Center</a>
+    </div>
+    <div class="nav-actions">
+      <a href="notifications.html" class="nav-btn-ghost">Live community signals</a>
+      <a href="auth.html" class="nav-btn-primary">Join the platform</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="eyebrow">SMIT Grand Coding Night 2026</p>
+      <h1 class="hero-title">Find help faster. Become help that matters.</h1>
+      <p class="hero-desc">HelpHub AI is a community-powered support network for students, mentors, creators, and builders. Ask for help, offer help, track impact, and let AI surface smarter matches across the platform.</p>
+      <div class="hero-ctas">
+        <a href="dashboard.html" class="btn-primary">Open product demo</a>
+        <a href="create-request.html" class="btn-outline">Post a request</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <p class="stat-label">MEMBERS</p>
+          <p class="stat-value" id="statMembers">384+</p>
+          <p class="stat-desc">Students, mentors, and helpers in the loop.</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">REQUESTS</p>
+          <p class="stat-value" id="statRequests">72+</p>
+          <p class="stat-desc">Support posts shared across learning journeys.</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">SOLVED</p>
+          <p class="stat-value" id="statSolved">69+</p>
+          <p class="stat-desc">Problems resolved through fast community action.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="dark-card">
+         <span class="orb"></span>
+        <p class="eyebrow-light">LIVE PRODUCT FEEL</p>
+        <h2 class="dark-card-title">More than a form. More like an ecosystem.</h2>
+        <p class="dark-card-desc">A polished multi-page experience inspired by product platforms, with AI summaries, trust scores, contribution signals, notifications, and leaderboard momentum built directly in HTML, CSS, JavaScript, and LocalStorage.</p>
+        <div class="feature-list">
+          <div class="feature-item">
+            <h4>AI request intelligence</h4>
+            <p>Auto-categorization, urgency detection, tags, rewrite suggestions, and trend snapshots.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Community trust graph</h4>
+            <p>Badges, helper rankings, trust score boosts, and visible contribution history.</p>
+          </div>
+          <div class="feature-item">
+            <p class="trust-pct">100%</p>
+            <p>Top trust score currently active across the sample mentor network.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE FLOW -->
+<section class="section-flow">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <p class="eyebrow-teal">CORE FLOW</p>
+        <h2 class="section-title">From struggling alone to solving together</h2>
+      </div>
+      <a href="onboarding.html" class="btn-pill">Try onboarding AI</a>
+    </div>
+    <div class="flow-cards">
+      <div class="flow-card">
+        <h3>Ask for help clearly</h3>
+        <p>Create structured requests with category, urgency, AI suggestions, and tags that attract the right people.</p>
+      </div>
+      <div class="flow-card">
+        <h3>Discover the right people</h3>
+        <p>Use the explore feed, helper lists, notifications, and messaging to move quickly once a match happens.</p>
+      </div>
+      <div class="flow-card">
+        <h3>Track real contribution</h3>
+        <p>Trust scores, badges, solved requests, and rankings help the community recognize meaningful support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED REQUESTS -->
+<section class="section-requests">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <p class="eyebrow-teal">FEATURED REQUESTS</p>
+        <h2 class="section-title">Community problems currently in motion</h2>
+      </div>
+      <a href="explore.html" class="btn-pill">View full feed</a>
+    </div>
+    <div class="request-cards" id="featuredRequests">
+      <!-- JS populated -->
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>HelpHub AI is built as a premium-feel, multi-page community support product using HTML, CSS, JavaScript, and LocalStorage.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderFeaturedRequests();
+</script>
+</body>
+</html>

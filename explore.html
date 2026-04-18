@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Explore</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="explore.html" class="nav-link active">Explore</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+      <a href="notifications.html" class="nav-link">Notifications</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow-light">EXPLORE / FEED</p>
+    <h1>Browse help requests with filterable community context.</h1>
+    <p>Filter by category, urgency, skills, and location to surface the best matches.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="page-inner">
+    <div class="explore-layout">
+
+      <!-- FILTERS -->
+      <div class="filters-panel">
+        <div class="card-eyebrow">FILTERS</div>
+        <h3 style="font-size:24px;font-weight:800;margin-bottom:24px;">Refine the feed</h3>
+
+        <div class="filter-section">
+          <label class="filter-label">Category</label>
+          <select class="form-select" id="filterCategory" onchange="applyFilters()">
+            <option value="all">All categories</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Design">Design</option>
+            <option value="Career">Career</option>
+            <option value="Community">Community</option>
+          </select>
+        </div>
+
+        <div class="filter-section">
+          <label class="filter-label">Urgency</label>
+          <select class="form-select" id="filterUrgency" onchange="applyFilters()">
+            <option value="all">All urgency levels</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+
+        <div class="filter-section">
+          <label class="filter-label">Skills</label>
+          <input class="form-input" type="text" placeholder="React, Figma, Git/GitHub" id="filterSkills" oninput="applyFilters()">
+        </div>
+
+        <div class="filter-section">
+          <label class="filter-label">Location</label>
+          <input class="form-input" type="text" placeholder="Karachi, Lahore, Remote" id="filterLocation" oninput="applyFilters()">
+        </div>
+
+        <button class="btn-full dark" style="margin-top:8px;" onclick="resetFilters()">Reset filters</button>
+      </div>
+
+      <!-- FEED -->
+      <div class="explore-feed" id="exploreFeed">
+        <!-- JS populated -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  function applyFilters() {
+    const category = document.getElementById('filterCategory').value;
+    const urgency = document.getElementById('filterUrgency').value;
+    renderExploreFeed({ category, urgency });
+  }
+
+  function resetFilters() {
+    document.getElementById('filterCategory').value = 'all';
+    document.getElementById('filterUrgency').value = 'all';
+    document.getElementById('filterSkills').value = '';
+    document.getElementById('filterLocation').value = '';
+    renderExploreFeed({});
+  }
+
+  renderExploreFeed({});
+</script>
+</body>
+</html>

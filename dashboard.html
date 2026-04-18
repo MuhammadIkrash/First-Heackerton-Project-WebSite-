@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="create-request.html" class="nav-link">Create Request</a>
+      <a href="ai-center.html" class="nav-link">AI Center</a>
+      <a href="messages.html" class="nav-link">Messages</a>
+      <a href="notifications.html" class="nav-link">Notifications</a>
+      <a href="profile.html" class="nav-link">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner" id="dashHero">
+    <p class="eyebrow-light">DASHBOARD</p>
+    <h1 id="dashGreeting">Welcome back.</h1>
+    <p id="dashSubtitle">Here's what's happening across the community today.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="page-inner">
+
+    <div class="dash-stat-row">
+      <div class="dash-stat">
+        <div class="dash-stat-label">Trust Score</div>
+        <div class="dash-stat-value" id="dashTrust">100%</div>
+        <div class="dash-stat-sub">Your community reputation</div>
+      </div>
+      <div class="dash-stat">
+        <div class="dash-stat-label">Contributions</div>
+        <div class="dash-stat-value" id="dashContrib">35</div>
+        <div class="dash-stat-sub">Requests you've helped with</div>
+      </div>
+      <div class="dash-stat">
+        <div class="dash-stat-label">Open Requests</div>
+        <div class="dash-stat-value">2</div>
+        <div class="dash-stat-sub">Awaiting community help</div>
+      </div>
+      <div class="dash-stat">
+        <div class="dash-stat-label">Solved</div>
+        <div class="dash-stat-value">69+</div>
+        <div class="dash-stat-sub">Community problems resolved</div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="card-eyebrow">QUICK ACTIONS</div>
+        <h3 class="card-title" style="font-size:22px;">Get started</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="create-request.html" class="btn-teal" style="text-align:center;">Post a help request</a>
+          <a href="explore.html" class="btn-outline" style="text-align:center;">Browse the feed</a>
+          <a href="ai-center.html" class="btn-outline" style="text-align:center;">View AI insights</a>
+          <a href="leaderboard.html" class="btn-outline" style="text-align:center;">See leaderboard</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-eyebrow">RECENT ACTIVITY</div>
+        <h3 class="card-title" style="font-size:22px;">Community feed</h3>
+        <div id="dashFeed"></div>
+      </div>
+    </div>
+
+    <div class="card dashboard-full">
+      <div class="card-eyebrow">MY PROFILE SNAPSHOT</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+        <div>
+          <h3 class="card-title" style="font-size:22px;" id="dashName">Ayesha Khan</h3>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:16px;" id="dashRole">Both • Karachi</p>
+          <div style="margin-bottom:12px;">
+            <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:8px;">Skills</p>
+            <div class="skills-chips" id="dashSkills"></div>
+          </div>
+          <div>
+            <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:8px;">Badges</p>
+            <div class="badges-chips" id="dashBadges"></div>
+          </div>
+        </div>
+        <div>
+          <a href="profile.html" class="btn-outline" style="display:block;text-align:center;margin-bottom:12px;">Edit profile</a>
+          <a href="messages.html" class="btn-outline" style="display:block;text-align:center;">View messages</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  const user = getCurrentUser();
+  document.getElementById('dashGreeting').textContent = `Welcome back, ${user.name.split(' ')[0]}.`;
+  document.getElementById('dashTrust').textContent = user.trust + '%';
+  document.getElementById('dashContrib').textContent = user.contributions;
+  document.getElementById('dashName').textContent = user.name;
+  document.getElementById('dashRole').textContent = `${user.role} • ${user.location}`;
+  document.getElementById('dashSkills').innerHTML = user.skills.map(s => `<span class="chip teal">${s}</span>`).join('');
+  document.getElementById('dashBadges').innerHTML = user.badges.map(b => `<span class="chip">${b}</span>`).join('');
+
+  // Recent feed
+  const feed = document.getElementById('dashFeed');
+  feed.innerHTML = REQUESTS.slice(0, 3).map(r => `
+    <div style="padding:12px 0;border-bottom:1px solid var(--border);cursor:pointer;" onclick="location.href='request-detail.html?id=${r.id}'">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;">
+        <span class="tag ${tagClass(r.category)}">${r.category}</span>
+        <span class="tag ${tagClass(r.urgency)}">${r.urgency}</span>
+        <span class="tag ${tagClass(r.status)}">${r.status}</span>
+      </div>
+      <div style="font-weight:700;font-size:13px;margin-bottom:2px;">${r.title}</div>
+      <div style="font-size:12px;color:var(--muted);">${r.author} • ${r.location}</div>
+    </div>
+  `).join('');
+</script>
+</body>
+</html>

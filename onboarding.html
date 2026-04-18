@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="auth.html" class="nav-link">Login</a>
+    </div>
+  </div>
+</nav>
+
+<div class="onboarding-center">
+
+  <!-- STEP INDICATOR -->
+  <div class="step-indicator" id="stepDots">
+    <div class="step-dot active"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="onboarding-step active" id="step1">
+    <p class="eyebrow-teal">ONBOARDING · STEP 1 OF 4</p>
+    <h2 style="font-size:36px;font-weight:800;margin-bottom:12px;">Welcome to HelpHub AI.</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:32px;line-height:1.7;">This is a community-powered support network where students, mentors, creators, and builders connect. Let's get you set up in 4 quick steps.</p>
+    <button class="btn-full teal" onclick="nextStep(2)">Get started →</button>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="onboarding-step" id="step2">
+    <p class="eyebrow-teal">ONBOARDING · STEP 2 OF 4</p>
+    <h2 style="font-size:32px;font-weight:800;margin-bottom:12px;">What's your role on HelpHub?</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:24px;">You can always change this later from your profile.</p>
+    <div class="role-options">
+      <div class="role-option" onclick="selectRole(this,'Need Help')" id="roleNeedHelp">
+        <h4>Need Help</h4>
+        <p>I have challenges I want the community to help me solve.</p>
+      </div>
+      <div class="role-option" onclick="selectRole(this,'Can Help')" id="roleCanHelp">
+        <h4>Can Help</h4>
+        <p>I have skills and time to support others in the community.</p>
+      </div>
+      <div class="role-option" onclick="selectRole(this,'Both')" id="roleBoth">
+        <h4>Both</h4>
+        <p>I want to give and receive help depending on the situation.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;">
+      <button class="btn-outline" style="flex:1;" onclick="nextStep(1)">← Back</button>
+      <button class="btn-teal" style="flex:2;" onclick="nextStep(3)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="onboarding-step" id="step3">
+    <p class="eyebrow-teal">ONBOARDING · STEP 3 OF 4</p>
+    <h2 style="font-size:32px;font-weight:800;margin-bottom:12px;">Tell us about your skills.</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.7;">This helps the AI match you to the right requests and surfaces your profile for relevant helpers.</p>
+    <div class="form-group">
+      <label class="form-label">Your skills (comma-separated)</label>
+      <input class="form-input" type="text" id="onboardSkills" placeholder="e.g. Figma, HTML/CSS, Python, Career Guidance">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Your location</label>
+      <input class="form-input" type="text" id="onboardLocation" placeholder="e.g. Karachi, Remote, Lahore">
+    </div>
+    <div style="display:flex;gap:12px;margin-top:8px;">
+      <button class="btn-outline" style="flex:1;" onclick="nextStep(2)">← Back</button>
+      <button class="btn-teal" style="flex:2;" onclick="nextStep(4)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="onboarding-step" id="step4">
+    <p class="eyebrow-teal">ONBOARDING · STEP 4 OF 4</p>
+    <h2 style="font-size:32px;font-weight:800;margin-bottom:16px;">You're all set! 🎉</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:32px;line-height:1.7;">Your profile is ready. Explore the community, post your first request, or check the AI Center to see what the platform is noticing right now.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <a href="auth.html" class="btn-full teal" style="display:block;text-align:center;">Join the platform →</a>
+      <a href="explore.html" class="btn-full dark" style="display:block;text-align:center;border:none;cursor:pointer;">Browse help requests</a>
+      <a href="ai-center.html" class="btn-outline" style="display:block;text-align:center;">Explore AI Center</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  let selectedRole = 'Both';
+
+  function nextStep(n) {
+    document.querySelectorAll('.onboarding-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + n).classList.add('active');
+    const dots = document.querySelectorAll('.step-dot');
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i < n);
+    });
+  }
+
+  function selectRole(el, role) {
+    selectedRole = role;
+    document.querySelectorAll('.role-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+</script>
+</body>
+</html>

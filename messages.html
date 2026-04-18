@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpHub AI | Messages</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="messages.html" class="nav-link active">Messages</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow-light">INTERACTION / MESSAGING</p>
+    <h1>Keep support moving through direct communication.</h1>
+    <p>Basic messaging gives helpers and requesters a clear follow-up path once a match happens.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="page-inner">
+    <div class="messages-layout">
+
+      <!-- CONVERSATION STREAM -->
+      <div class="card">
+        <div class="card-eyebrow">CONVERSATION STREAM</div>
+        <h3 style="font-size:24px;font-weight:800;margin-bottom:20px;">Recent messages</h3>
+        <div id="messagesList"></div>
+      </div>
+
+      <!-- SEND MESSAGE -->
+      <div class="card">
+        <div class="card-eyebrow">SEND MESSAGE</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:24px;">Start a conversation</h3>
+
+        <div class="form-group">
+          <label class="form-label" for="msgTo">To</label>
+          <select class="form-select" id="msgTo">
+            <option>Ayesha Khan</option>
+            <option>Hassan Ali</option>
+            <option>Sara Noor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="msgText">Message</label>
+          <textarea class="form-textarea" id="msgText"
+            placeholder="Share support details, ask for files, or suggest next steps."
+            style="min-height:160px;"></textarea>
+        </div>
+
+        <button class="btn-full teal" onclick="sendMessage()">Send</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderMessages();
+</script>
+</body>
+</html>
