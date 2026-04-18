@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelpHub AI | AI Center</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- <nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-box">H</span>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="explore.html" class="nav-link">Explore</a>
+      <a href="create-request.html" class="nav-link">Create Request</a>
+      <a href="ai-center.html" class="nav-link active">AI Center</a>
+    </div>
+  </div>
+</nav> -->
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <p class="eyebrow-light">AI CENTER</p>
+        <h1>See what the platform intelligence is noticing.</h1>
+        <p>
+          AI-like insights summarize demand trends, helper readiness, urgency
+          signals, and request recommendations.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-inner">
+        <nav class="navbar">
+          <div class="nav-inner">
+            <a href="#" class="nav-logo">
+              <div class="logo-box">H</div>
+              <span class="logo-text">HelpHub AI</span>
+            </a>
+
+            <div class="nav-links">
+              <a href="dashboard.html" class="nav-link">Dashboard</a>
+              <a href="create-request.html" class="nav-link">Create Request</a>
+              <a href="ai-center.html" class="nav-link active">AI Center</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- AI STATS ROW -->
+        <div class="ai-stats-row">
+          <div class="ai-stat-card">
+            <div class="ai-stat-label">TREND PULSE</div>
+            <div class="ai-stat-value">Web<br />Development</div>
+            <div class="ai-stat-desc">
+              Most common support area based on active community requests.
+            </div>
+          </div>
+          <div class="ai-stat-card">
+            <div class="ai-stat-label">URGENCY WATCH</div>
+            <div class="ai-stat-value">2</div>
+            <div class="ai-stat-desc">
+              Requests currently flagged high priority by the urgency detector.
+            </div>
+          </div>
+          <div class="ai-stat-card">
+            <div class="ai-stat-label">MENTOR POOL</div>
+            <div class="ai-stat-value">2</div>
+            <div class="ai-stat-desc">
+              Trusted helpers with strong response history and contribution
+              signals.
+            </div>
+          </div>
+        </div>
+
+        <!-- AI RECOMMENDATIONS -->
+        <div class="card">
+          <div class="card-eyebrow">AI RECOMMENDATIONS</div>
+          <h3 style="font-size: 26px; font-weight: 800; margin-bottom: 24px">
+            Requests needing attention
+          </h3>
+          <div class="ai-recs-list" id="aiRecs">
+            <!-- JS populated -->
+          </div>
+        </div>
+
+        <!-- INSIGHT CARDS -->
+        <div class="two-col" style="margin-top: 24px">
+          <div class="card">
+            <div class="card-eyebrow">COMMUNITY HEALTH</div>
+            <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 20px">
+              Platform signals
+            </h3>
+            <div class="profile-stats-row">
+              <div class="profile-stat-row">
+                <span class="profile-stat-label">Average response time</span>
+                <span class="profile-stat-value">~18 min</span>
+              </div>
+              <div class="profile-stat-row">
+                <span class="profile-stat-label">Solve rate this week</span>
+                <span class="profile-stat-value">94%</span>
+              </div>
+              <div class="profile-stat-row">
+                <span class="profile-stat-label">Active helpers today</span>
+                <span class="profile-stat-value">3</span>
+              </div>
+              <div class="profile-stat-row">
+                <span class="profile-stat-label">Top category demand</span>
+                <span class="profile-stat-value">Web Dev</span>
+              </div>
+              <div class="profile-stat-row">
+                <span class="profile-stat-label">New requests today</span>
+                <span class="profile-stat-value">4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-eyebrow">HELPER READINESS</div>
+            <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 20px">
+              Top contributors
+            </h3>
+            <div id="aiHelpers"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+      renderAICenter();
+
+      // Top helpers
+      const aiHelpers = document.getElementById("aiHelpers");
+      aiHelpers.innerHTML = USERS.map(
+        (u) => `
+    <div class="helper-mini-row">
+      <div class="helper-avatar" style="background:${u.color};width:36px;height:36px;font-size:12px;">${u.initials}</div>
+      <div style="flex:1;">
+        <div style="font-weight:700;font-size:13px;">${u.name}</div>
+        <div style="font-size:12px;color:var(--muted);">${u.skills.slice(0, 2).join(", ")}</div>
+      </div>
+      <span class="trust-badge">Trust ${u.trust}%</span>
+    </div>
+  `,
+      ).join("");
+    </script>
+  </body>
+</html>

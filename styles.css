@@ -80,7 +80,120 @@ h1, h2, h3, h4, h5 { font-family: 'Bricolage Grotesque', sans-serif; font-weight
 /* ========================
    NAVBAR
 ======================== */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+  background-color: #f1f3ea; /* Matches the warm, light background */
+}
+
+/* Navbar Container */
 .navbar {
+  width: 100%;
+  padding: 15px 60px;
+  background: transparent; /* Changed to transparent per image */
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo Section */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: 60px;
+}
+
+.logo-box {
+  background: linear-gradient(135deg, #12a294, #0d8b7f);
+  color: white;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px; /* Slightly softer corners */
+  font-weight: 800;
+  font-size: 14px;
+  margin-right: 12px;
+}
+
+.logo-text {
+  color: #333;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #6a7164; /* Earthy grey-green */
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px 22px;
+  transition: 0.3s;
+}
+
+/* Updated Active State (Soft Green Pill) */
+.nav-link.active {
+  background-color: #dbe4d9; 
+  color: #12a294;
+  border-radius: 50px; /* Pill shape */
+}
+
+/* Right Side Actions */
+.nav-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Pill with White Background */
+.nav-btn-ghost {
+  text-decoration: none;
+  background-color: white;
+  color: #6a7164;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Pill with Teal Gradient */
+.nav-btn-primary {
+  text-decoration: none;
+  background: linear-gradient(to right, #12a294, #0d8b7f);
+  color: white;
+  padding: 10px 28px;
+  border-radius: 50px; /* Pill shape */
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(18, 162, 148, 0.2);
+}
+
+
+
+
+
+/* .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -224,7 +337,7 @@ h1, h2, h3, h4, h5 { font-family: 'Bricolage Grotesque', sans-serif; font-weight
   white-space: nowrap;
   flex-shrink: 0;
 }
-.btn-pill:hover { border-color: var(--text); }
+.btn-pill:hover { border-color: var(--text); } */
 
 /* ========================
    DARK HERO CARD
@@ -947,3 +1060,87 @@ h1, h2, h3, h4, h5 { font-family: 'Bricolage Grotesque', sans-serif; font-weight
   .nav-links { display: none; }
   .flow-cards, .request-cards { grid-template-columns: 1fr; }
 }
+
+
+/* Reset and Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: #f2f3eb; /* The warm background from the image */
+}
+
+/* Navbar Container */
+.navbar {
+  width: 100%;
+  padding: 20px 40px; /* Adjust padding to match visual top margin */
+  background: transparent;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This pushes links to the right */
+}
+
+/* Logo Styling */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+}
+
+.logo-box {
+  background: linear-gradient(135deg, #14b8a6, #0d9488); /* Teal gradient */
+  color: white;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.logo-text {
+  color: #374151; /* Dark grey-ish text */
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Minimal gap between links */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #6b7280; /* Muted text color */
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: all 0.2s ease;
+}
+
+/* Active State: AI Center Pill */
+.nav-link.active {
+  background-color: #dbe4d9; /* The light mint-grey pill background */
+  color: #12a294;           /* The teal text color */
+  border-radius: 50px;      /* Perfect pill shape */
+}
+
+.nav-link:hover:not(.active) {
+  color: #12a294;
+}
+
+
